@@ -1,0 +1,152 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+header{
+    height: 10vh;
+    width: 100%;
+    /* background: red; */
+}
+.all{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    justify-content: center;
+}
+.bar{
+    min-height: 50vh;
+    width: 100%;
+    margin-bottom: 2rem;
+    background: #43C47B;
+    display: flex;
+    border-radius: 5px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5rem;
+}
+.bar .text, .bar .aunty{
+    min-width: 30%;
+    min-height: 50vh;
+}
+.bar .text{
+
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 1rem 2rem;
+    letter-spacing: 0.5px;
+    color: white;
+    font-weight: 500;
+    margin-left: 6rem;
+    flex-direction: column-reverse;
+
+}
+.search-option{
+    display: flex;
+    width: 100%;
+    position: relative;
+    flex-direction: row;
+}
+.bar .aunty{
+    /* background-color: yellow; */
+    position: relative;
+    padding: 2rem;
+}
+.bar .aunty img{
+    position: absolute;
+    right: 300px;
+    height: 330px;
+    width: 400px;
+    right: 160px;
+    bottom: 0;
+
+
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.main{
+    width: 95%;
+    height: 200vh;
+    position: relative;
+    
+}
+.shops{
+    width: 100%;
+    height: 200vh;
+    /* background: chartreuse; */
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    flex-direction: column;
+}
+.shops .shop{
+    height: 25vh;
+    width: 80%;
+    box-shadow: 0px 2px 6px rgba(0,0,0,0.5);
+    /* background: crimson; */
+    margin: 2rem;
+    border-radius: 5px;
+    position: relative;
+    display: flex;
+     align-items: center;
+     justify-content: space-between;
+
+}
+.imgpart{
+    
+    height: 20vh;
+    width: 14%;
+    background-color: rgb(211, 210, 210);
+    margin-left: 2rem;
+}
+.imgpart img{
+    height: 20vh;
+    width: 100%;
+}
+.details{
+    height: 20vh;
+    width: 20%;
+    margin: 1rem;
+
+    
+}
+h2{
+    color: green;
+    font-size: 20px;
+}
+.details p{
+
+    margin: 0.5rem 0;
+}
+.links{
+    height: 18vh;
+    width: 20%;
+    /* background: red; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+a{
+    color: white;
+    background: #43C47B;
+    padding: 1rem;
+    border-radius: 5px;
+    font-weight: 600;
+    
+}
+.bio{
+    width: 40%;
+    color: green;
+    font-style: italic;
+}
+i{
+    color: yellow;
+   
+}

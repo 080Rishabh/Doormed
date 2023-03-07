@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% include 'messages.html' %}
+
+{% block header %}
+<script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="{{url_for('static', filename = 'css/style1.css')}}">
+<!-- <link rel="icon" href="{{url_for('static', filename = 'images/icon.png')}}" type="image/gif" sizes="16x16"> -->
+{% endblock %}
+
+{% block content %}
+{% include 'navbar.html' %}
+<div class="all">
+  <div class="bar">
+    <div class="text">
+
+
+
+      <p>Keep yourself away from COVID and get your medication at your doorstep with minimum amount of human contact..
+      </p>
+    </div>
+    <div class="aunty">
+      <img src="{{url_for('static', filename = 'images/door.png')}}">
+    </div>
+  </div>
+  <div class="main">
+    <div class="shops">
+      {% if shops %}
+      {% for shop in shops %}
+      <div class="shop">
+        <div class="imgpart">
+          <img src="/show1/{{shop.id}}">
+        </div>
+        <div class="details">
+          <h2>{{shop.shop_name}}</h2>
+          <p>{{shop.address}}</p>
+          <p>{{shop.city}}</p>
+          <p>{{shop.pincode}}</p>
+        </div>
+        <div class="bio">
+          <p>{{shop.bio}}</p>
+        </div>
+        <div class="links">
+          <i class="fas fa-star fa-2x"></i>
+
+
+          <a href="/user_login">View more</a>
+        </div>
+      </div>
+      {% endfor %}
+      {% endif %}
+
+
+
+    </div>
+
+  </div>
+</div>
+
+{% endblock %}

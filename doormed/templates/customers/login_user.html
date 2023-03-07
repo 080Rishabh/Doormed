@@ -1,0 +1,42 @@
+
+{% extends 'base.html' %}
+{% include 'messages.html' %}
+
+{% block header %}
+    <link href="{{url_for('static', filename = 'css/login.css')}}" rel="stylesheet" type="text/css" />
+    {% endblock %}
+
+    {% block content %}
+    <div class="login">
+      <div class="con">
+          <h2>Health is always the first priority for everyone, get medicine at your desired time!</h2>
+          <br>
+          <p> Leave all the work upon us and get a hassle free work experience with Doormed </p>
+      </div>
+      <div class="centre">
+          <header>Welcome to 
+     
+                <img src="{{url_for('static', filename = 'images/logo.svg')}}" alt="" class="logo" style="margin-bottom: 1rem;">
+         
+          </header>
+          <form action="#" method="POST">
+              <div class="txt_field">
+                  <input type="text" name="email1" required>
+                  <span></span>
+                  <label>Email</label>
+              </div>
+              <div class="txt_field">
+                  <input type="password" name="password1" required>
+                  <span></span>
+                  <label>Password</label>
+              </div>
+              <div class="pass">Forgot Password?</div><br>
+              <input type="submit" value="Sign-in">
+              <div class="signup">
+                  Not a member? <a href="/reg_user">SignUp</a>
+              </div>
+          </form>
+      </div>
+    
+    </div>
+    {% endblock %}

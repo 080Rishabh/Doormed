@@ -1,0 +1,154 @@
+
+{% extends 'base.html' %}
+{% block header %}
+  
+
+    <link rel="stylesheet" href="{{url_for('static', filename = 'css/cart.css')}}">
+{% endblock %}
+{% block content %}
+{% include 'navbar.html' %}
+  
+  <div class="main">
+    
+    {% if shop %}
+    <div class="left">
+ <div class="head">
+  <div class="shop">
+      
+    <span>ORDER FROM <h2>{{shop.shop_name}}</h2></apan>
+        <p>{{shop.address}}</p>
+        <p>{{shop.city}}</p>
+     <p>{{shop.pincode}}</p>
+ </div>
+ <div class="clear">
+   <a href="/main/{{user.id}}/clearcart" style="text-decoration: none;">Clear Cart</a>
+ </div>
+ </div>
+    
+     <div class="carts">
+        {% include 'messages.html' %}
+        {% set ns = namespace(sub=0) %}
+        {% for item,ch in items %}
+<div class="cart">
+  <h4 style="margin: 1rem 1rem;">{{loop.index}}.</h4>
+ <div class="imgBox">
+ <img src="/show/{{item.id}}" alt="no" width="135px" height="130px">
+
+ </div>
+ <div class="all">
+   <div class="alls">
+   <h3 style="color: #43C47B;">{{item.name}}</h3>
+   
+   <div class="btn">
+    <p>Quantity:</p>
+
+    <form method="POST" action="{{url_for('updateitem', id = user.id, id2 = ch.id)}}">
+                      
+      <input type="number" value="{{ch.quantity}}" min="1" style="width: 50px" name="quantity"
+      height: 27px; outline: none; font-size: 15px">   
+   <input type="submit" placeholder="UPDATE" value="UPDATE" style="border: none; color: blue; font-size: 12px; outline: none;">
+       
+        </form>
+     
+
+  
+  
+ </div>
+ <small><button style="background: none; border: none; outline: none; color: red; cursor: pointer;" type="button"data-bs-toggle="modal" data-bs-target="#exampleModal-{{ item.id }}">
+  REMOVE
+ </button></small>
+ </div>
+
+<div class="sub">
+ <p>Subtotal: <b>{{item.price * ch.quantity}}</b></p>
+ {% set ns.sub = ns.sub + (item.price * ch.quantity)%}
+</div>
+<div class="modal fade" id="exampleModal-{{ item.id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">{{ item.name }}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <span class="text-danger">Are you sure? You want to delete product!</span>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-sm btn-warning" data-bs-dismiss="modal">Cancel</button>
+          <form action="{{url_for('deleteitem', id2 = ch.id, id = user.id)}}" method="POST">
+            <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+          </form>
+         
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+</div>
+  {% endfor %}
+
+
+
+   
+
+           
+
+
+
+        
+                 
+
+
+    </div>
+
+  
+  </div>
+  
+  <div class="right">
+    <div class="details">
+<h3 style="text-align: center; margin-top: 0.5rem;">Price Details</h3>
+<hr>
+<div class="box">
+  <div class="price">
+<p>Price: </p>
+<b >{{ns.sub}}</b>
+</div>
+<div class="price">
+<p>Delivery Charges: </p>
+<b >0</b>
+</div>
+<hr>
+<div class="price">
+<p>Total:</p>
+<b >{{ns.sub}}</b>
+</div>
+<hr>
+</div>
+<h3>Delivery Address</h3>
+<p>{{user.address}} {{user.pincode}}</p>
+
+    </div>
+    <div class="pay">
+ <h4>Select Payment Method</h4>
+ <hr>
+ <div class="opt">
+ <input type="radio" id="cash" name="cash" value="cash">
+  <label for="cash">Cash On Delivery</label><br>
+  <input type="radio" id="female" name="gender" value="female" disabled>
+  <label for="female">Wallets or UPI</label><br>
+  <input type="radio" id="other" name="gender" value="other" disabled>
+  <label for="female">Credit or Debit Card</label><br>
+    </div>
+    <div class="order">
+        <form action="/main/{{user.id}}/order" method="POST">
+   <button style="border: none; outline: none;"> <a style="color: white;">Place Order</a></button>
+    </form>
+    </div>
+    </div>
+  </div>
+
+  {% else %}
+  <h3 style="margin: auto;">Your cart is empty</h3>
+  {% endif %}
+  </div>
+{% endblock %}

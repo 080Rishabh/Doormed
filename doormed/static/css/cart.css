@@ -1,0 +1,269 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #43C47B; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #b30000; 
+}
+.cart-li{
+  display: flex;
+  height: 9vh;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  font-size: 20px;
+}
+.cart-li p{
+  margin-top: -0.5rem;
+}
+
+body{
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  /* overflow: hidden; */
+}
+
+.main{
+  min-height: 88vh;
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  
+  /* align-items: center; */
+
+  
+}
+.main .left{
+  width: 60%;
+  height: 92vh;
+  
+  position: relative;
+  margin-top: 3rem;
+}
+.main .left .head{
+  width: 100%;
+  min-height: 20vh;
+  /* background-color: yellow; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.main .left .shop{
+  min-height: 20vh;
+  max-width: 90%;
+  color: black;
+  padding: 1rem 1.9rem;
+  margin-left: 1.9rem;
+  margin-top: 1rem;
+  /* font-weight: 600; */
+  /* box-shadow: 1px 2px 2px gray; */
+
+}
+
+.main .left .shop h2{
+  color: #43C47B;
+  font-weight: 800;
+  font-size: 35px;
+}
+.main .left .carts{
+  height: 72vh;
+  width: 100%;
+  /* background: #2c16f0; */
+  padding: 1rem;
+  margin: 1rem;
+  overflow-y: scroll;
+}
+
+.main .left .carts .cart{
+  width: 95%;
+  min-height: 18vh;
+  /* background: green; */
+  border-radius: 5px;
+  border: 0.2px solid rgba(0,0,0,0.2);
+  /* box-shadow: 1px 1px 3px gray; */
+  position: relative;
+  display: flex;
+  margin-top: 0.5rem;
+
+
+}
+.main .left .carts .cart .imgBox{
+  width: 20%;
+  min-height: 16vh;
+  /* background: gray; */
+  margin: auto;
+  /* padding-left: 1.5rem; */
+  border-radius: 5px;
+  
+  
+}
+.main .left .carts .cart  .all{
+  width: 70%;
+  min-height: 25vh;
+  /* background: greenyellow; */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem;
+  position: relative;
+}
+.main .left .carts .cart  .all .alls{
+  height: 20vh;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  justify-content: space-between;
+  /* background: chocolate; */
+  
+  
+}
+.main .left .carts .cart  .all .alls .btn{
+  /* padding: 0.2rem; */
+  /* background: chartreuse; */
+  display: flex;
+  justify-content: space-evenly;
+  /* flex-direction: column; */
+  padding: 0.2rem;
+  
+
+}
+.btn {
+  /* background-color: yellow; */
+  /* width: 50%; */
+  flex-direction: row;
+}
+.main .left .carts .cart  .all .alls h2, b{
+  color: #43C47B;
+}
+.main .left .carts .cart  .all .alls small{
+  color: red;
+  font-size: 10px;
+  margin-top: 1.8rem;
+}
+.main .left .carts .cart  .all .sub{
+  /* background: chartreuse; */
+  width: 30%;
+
+}
+
+.main .right{
+  width: 40%;
+  height: 92vh;
+  /* background: red; */
+  position: relative;
+  /* padding: 1rem; */
+}
+.main .right .details{
+
+  margin: auto;
+  width: 80%;
+ 
+  /* background: chartreuse; */
+
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  justify-content: space-evenly;
+}
+.main .right .details .box p{
+  padding: 0.5rem;
+}
+.main .right .details p{
+  color: #43C47B;
+  font-weight: 600;
+}
+.right .pay{
+  margin: auto;
+  /* background: chartreuse; */
+  min-height: 45vh;
+  width: 80%;
+  border-radius: 5px;
+  box-shadow: 0px 3px 6px rgb(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  /* justify-content: flex-start; */
+}
+.right .pay h2{
+  text-align: center;
+  padding: 0.5rem;
+}
+.right .pay .opt{
+  /* background: red; */
+  padding: 0.5rem;
+
+  
+ 
+}
+.order{
+  margin-left: 25px;
+  margin-top: 15px;
+}
+.right .pay .opt input{
+  margin: 1rem 0.5rem;
+  cursor: pointer;
+}
+.right .pay .opt label{
+  color: #43C47B;
+  font-size: 20px;
+  font-weight: 600;
+  margin: 1rem 0rem;
+}
+
+a{
+  background-color: #43C47B;
+  color: white;
+  font-size: 16px;
+  border: 1px  black;
+  border-radius: 5px;
+  padding: 0.7rem 1rem;
+  outline: none;
+  /* text-shadow: 2px 2px 2px black; */
+  font-weight: 500;
+
+  cursor: pointer;
+}
+i{
+  color: white;
+  /* margin-right: 5rem; */
+  
+}
+small{
+  cursor: pointer;
+}
+.price{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.price p{
+  font-weight: 600;
+}
+h3, h4{
+  font-size: 20px;
+}

@@ -1,0 +1,128 @@
+{% extends 'base.html' %}
+
+{% block header %}
+
+<link rel="stylesheet" href="{{url_for('static', filename = 'css/index.css')}}">
+{% endblock %}
+
+{% block content %}
+{% include 'navbar.html' %}
+
+ 
+
+    <main class="container1">
+        <section class="left">
+            <div class="profile-card">
+                <img src="{{url_for('static', filename = 'images/profile.svg')}}" alt="" class="profile-img">
+                <div class="card-name">
+                    <p class="hello">Hello</p>
+                    <p class="name">{{user.name}}</p>
+                </div>
+            </div>
+            <div class="sidebar">
+                <a href="#" class="personal-info side-opt" id="pi">Personal Information</a>
+                <a href="#" class="purchase side-opt" id="ph">Purchase History</a>
+              
+            </div>
+            <div class="log-out">
+                
+        <form method="POST" action="/main/{{user.id}}/account/delete" style="text-align: center;">
+                <button class="logOut">Delete</button>
+                </form>
+            </div>
+        </section>
+        <section class="right">
+            <p class="heading">Personal Information</p>
+            {% include 'messages.html' %}
+
+            <form method="POST" action="/main/{{user.id}}/account/update">
+            <div class="details">
+                <div class="info">
+                    <div class="person-name info-box">
+                        <p class="label">Name</p>
+                        <input type="text" class="personName field" value="{{user.name}}">
+                    </div>
+                    <div class="Email info-box">
+                        <p class="label">Email</p>
+                        <input type="email" class="email-id field" value="{{user.email}}" name="email">
+                    </div>
+                    <div class="mobile info-box">
+                        <p class="label">Mob</p>
+                        <input type="number" class="mobile-no field" value="{{user.number}}" name="number">
+                    </div>
+                    <div class="address info-box">
+                        <p class="label">Address</p>
+                        <input type="text" class="address-text field" value="{{user.address}}" name="address">
+                    </div>
+                    <div class="city info-box">
+                        <p class="label">City</p>
+                        <input type="text" class="city-name field" value="{{user.city}}" name="city">
+                    </div>
+                    <div class="pin info-box">
+                        <p class="label">Pin</p>
+                        <input type="number" class="pin-code field" value="{{user.pincode}}" name="pincode">
+                    </div>
+                </div>
+                <div class="profile-picture">
+                    <img src="{{url_for('static', filename = 'images/profile.svg')}}" alt="" class="profile-pic">
+                    <button class="update" type="submit">Save Changes</button>
+                   
+                </div>
+            </div>
+            </form>
+        </section>
+
+
+            <section class="right1">
+                <p class="heading" style="margin-bottom: 2rem;">Purchase History</p>
+             {% if orders1 %}
+             {% for order,shop in orders1 %}
+                  <div class="o1">
+                      <div class="imBox">
+                          <img src="/show1/{{shop.id}}" alt="" width="130px" height="90px" style="margin: auto;">
+                      </div>
+                      <div class="shopname">
+                          <h4 style="color: green; font-size: 20px;">{{shop.shop_name}}</h4>
+                      </div>
+                      <div class="list-all">
+                          <p>Invoice No: <b>{{order.invoice}}</b></p>
+                          <p>Order Date: <b>{{order.order_date.strftime("%d-%m-%Y")}}</b></p>
+                          <p>Total: <b>{{order.total}}</b></p>
+                      </div>
+                      <!-- <div class="view">
+                          <a style="color: white; font-weight: 500;">View Details</a>
+                      </div> -->
+
+
+          
+                </div>
+                {% endfor %}
+                {% else %}
+                <h3 style="margin: auto; text-align: center; font-size: 10px;">You haven't purchased anything yet!</h3>
+                {% endif %}
+
+               
+
+
+            </section>
+     
+    </main>
+
+ 
+    <script>
+
+var button1 = document.getElementById("pi");
+    var button2 = document.getElementById("ph");
+    var div1 = document.querySelector(".right");
+    var div2 = document.querySelector(".right1");
+    
+    button1.addEventListener("click",function(){
+        div2.style.display = "none";
+        div1.style.display = "block";
+    });
+    button2.addEventListener("click",function(){
+        div1.style.display = "none";
+        div2.style.display = "block";
+    });
+    </script>
+{% endblock %}
